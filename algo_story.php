@@ -1,5 +1,6 @@
 <?php
 
+// liner search
 function searchI($a, $n, $x){
     foreach($a as $k => $v)
     {
