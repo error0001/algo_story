@@ -1,6 +1,6 @@
 <?php
 
-function serachI($a, $n, $x){
+function searchI($a, $n, $x){
     foreach($a as $k => $v)
     {
       if ($v == $x)
@@ -12,4 +12,4 @@ function serachI($a, $n, $x){
 }
 
 $b = [1,2,3,5,7,8];
-echo serachI($b, count($b), 3);
+echo searchI($b, count($b), 3);
