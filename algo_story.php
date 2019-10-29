@@ -18,19 +18,21 @@ function searchI($a, $n, $x){
 // $a - array, n - count of array, x needed value
 function searchI1($a, $n, $x)
 {
+    
     $last = $a[$n - 1];
-    $a[$n] = x;
+    // создаем гарантию что х содержится в списке
+    $a[$n - 1] = $x;
     $i = 0;
     while($a[$i] != $x)
     {
         $i++;
     }
-    $a[$n] = $last;
-    if ($i < $n || $a[$n] == $x)
+    $a[$n - 1] = $last;
+    if ($i < ($n - 1) || $a[$n - 1] == $x)
     {
         return $i;
     }
     return -1;
 }
 $b = [1,2,3,5,7,8];
-echo searchI1($b, count($b), 1);
+echo searchI1($b, count($b), 9);
