@@ -19,6 +19,7 @@ function searchI($a, $n, $x){
 function searchI1($a, $n, $x)
 {
     $last = $a[$n - 1];
+    $a[$n] = x;
     $i = 0;
     while($a[$i] != $x)
     {
@@ -32,4 +33,4 @@ function searchI1($a, $n, $x)
     return -1;
 }
 $b = [1,2,3,5,7,8];
-echo searchI1($b, count($b), 3);
+echo searchI1($b, count($b), 1);
