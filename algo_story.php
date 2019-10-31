@@ -37,3 +37,25 @@ function searchI1($a, $n, $x)
 }
 $b = [1,2,3,5,7,8];
 echo searchI1($b, count($b), 9);
+
+// Recursive liner search
+// a - arr, n - count of arr, x - needed value, i - 
+function RecursiveLinerSearch($a, $n, $x, $i)
+{
+    if($i > $n)
+    {
+        return "not found";  // -1 is not-found
+    }
+    elseif ($i <= $n && $a[$i] == $x)
+    {
+        return $i;
+    }
+    elseif ($i <= $n && $a[$i] != $x)
+    {
+        return RecursiveLinerSearch($a, $n, $x, $i + 1);
+    }
+    return 0;
+}
+
+$ae = [1,3,4,5,6,1,3,46];
+echo RecursiveLinerSearch($ae, count($ae), 4, 6);
