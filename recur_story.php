@@ -16,7 +16,7 @@ function fac($a , $b)
             return (string)$b;
         }
         // $n будет уменьшаться
-        return fac($a - 1, $b) . ' ' . $a;       
+        return $a  . ' ' . fac($a - 1, $b);       
     }
     // 1 < 10
     elseif ($a < $b)
@@ -26,7 +26,7 @@ function fac($a , $b)
             return (string)$a;
         }
         // $n будет увеличиваться
-        return $b . ' ' . fac($a, $b - 1);
+        return fac($a, $b - 1) . ' ' . $b;
     }
 }
 
