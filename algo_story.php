@@ -38,6 +38,19 @@ function searchI1($a, $n, $x)
 $b = [1,2,3,5,7,8];
 echo searchI1($b, count($b), 9);
 
+// simple factorial from max to min and * max
+function fac($n)
+{
+    if($n == 0)
+    {
+        return 1;
+    }
+    else
+    {
+      return $n * fac($n - 1);  
+    }
+}
+
 // Recursive liner search
 // a - arr, n - count of arr, x - needed value, i - 
 function RecursiveLinerSearch($a, $n, $x, $i)
