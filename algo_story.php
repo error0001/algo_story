@@ -51,6 +51,18 @@ function fac($n)
     }
 }
 
+// reverse count with recurse
+function fac($n)
+{
+    if($n == 1)
+    {
+        return "1";
+    }
+    return $n .= fac($n - 1);
+}
+
+print_r(fac(3)); // => 321
+
 // Recursive liner search
 // a - arr, n - count of arr, x - needed value, i - 
 function RecursiveLinerSearch($a, $n, $x, $i)
