@@ -58,7 +58,10 @@ function fac($n)
     {
         return "1";
     }
-    return $n .= fac($n - 1);
+    ////from max to min
+    // return $n .= fac($n - 1);
+    ////from min to max
+    return fac($n - 1) . $n;
 }
 
 print_r(fac(3)); // => 321
