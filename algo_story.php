@@ -52,7 +52,7 @@ function fac($n)
 }
 
 // reverse count with recurse
-function fac($n)
+function simple_rec($n)
 {
     if($n == 1)
     {
@@ -61,10 +61,10 @@ function fac($n)
     ////from max to min
     // return $n .= fac($n - 1);
     ////from min to max
-    return fac($n - 1) . $n;
+    return simple_rec($n - 1) . $n;
 }
 
-print_r(fac(3)); // => 321
+print_r(simple_rec(3)); // => 321
 
 // Recursive liner search
 // a - arr, n - count of arr, x - needed value, i - 
