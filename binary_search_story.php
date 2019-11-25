@@ -35,10 +35,10 @@ function binary_srch_basic($a,$n,$x)
 //$out = bin_srch($s, count($s), -2);
 //print_r($out);
 
-function binary_search_recursive($a, $x)
+function binary_search_recursive($a, $l, $h, $x)
 {
-    $low = 0;
-    $high = count($a);
+    $low = $l;
+    $high = $h - 1;
     $mid = 0;
     
     if($low <= $high)
@@ -59,3 +59,7 @@ function binary_search_recursive($a, $x)
     }   
     return "Not found";
 }
+
+$s = array(-2,2,3,4,5);
+$out = binary_search_recursive($s, 0, count($s) ,3);
+print_r($out);
