@@ -1,8 +1,12 @@
 <?php 
 // найти индекс значения
+// вход расписан по Кормену, для большего понимания
+// a - array, n - count from array, x - needed value
 function binary_srch_basic($a,$n,$x)
 {
+    // по Томасу Кормену, должно 1
     $low = 0;
+    // по Кормену Т. здесь должно быть без -1 
     $high = $n - 1;
     $mid = 0;
     while ($low <= $high)
