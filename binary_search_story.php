@@ -1,31 +1,32 @@
 <?php 
-// проблема с диапозоном поиска.
-// уточ. скорее всего уходит в бесконечный луп.
-function bin_srch($a,$n,$x)
+// найти индекс значения
+function binary_srch_basic($a,$n,$x)
 {
-    $p = 1;
-    $r = $n;
-    $q = 0;
-    while ($p <= $r)
+    $low = 0;
+    $high = $n - 1;
+    $mid = 0;
+    while ($low <= $high)
     {
-        $q = floor(($p+$r)/2) + 1;
-        if ($a[$q] == $x)
+        // floor убирает десятичную часть в меньшую сторону
+        $mid = floor(($low+$high)/2);
+        if ($a[$mid] == $x)
         {
-            print_r("\n");
-            return $q;
+            return $mid;
         }
-        elseif($a[$q] > $x)
+        // значит идем влево
+        if($a[$mid] > $x)
         {
-            $r = $q - 1;
+            $high = $mid - 1;
         }
-        elseif($a[$q] < $x)
+        // значит идем вправо
+        else //if($a[$q] < $x)
         {
-            $r = $q + 1;
+            $low = $mid + 1;
         }
     }
-    return -1;
+    return "Not found";
 }
 
-$s = array(1,2,3,4,5);
-$out = bin_srch($s, count($s), 6);
+$s = array(-2,2,3,4,5);
+$out = bin_srch($s, count($s), -2);
 print_r($out);
