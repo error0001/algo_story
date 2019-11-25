@@ -35,17 +35,16 @@ function binary_srch_basic($a,$n,$x)
 //$out = bin_srch($s, count($s), -2);
 //print_r($out);
 
-function binary_search_recursive($a, $l, $h, $x)
+// По Корнеру, мой слишком много ветвлений
+function binary_search_recursive(Array $a, $low, $high, $x)
 {
-    $low = $l;
-    $high = $h;
-    $mid = 0;
+    //$mid = 0;
     
     if ($low > $high)
     {
         return "Not correct";
     }
-    else
+    elseif($low <= $high)
     {
         $mid = floor(($low + $high) / 2);
         if ($a[$mid] == $x)
@@ -56,16 +55,39 @@ function binary_search_recursive($a, $l, $h, $x)
         {
             if ($a[$mid] > $x)
             {
-                binary_search_recursive($a, $low,$mid - 1, $x);
+                return binary_search_recursive($a, $low,$mid - 1, $x);
             }
             else
             {
-                binary_search_recursive($a, $mid + 1, $high, $x);
+                return binary_search_recursive($a, $mid + 1, $high, $x);
             }
         }
     }
 }
 
+// geekforkeeks
+function binarySearch(Array $arr, $start, $end, $x){ 
+    if ($end < $start) 
+        return "Not found"; 
+   
+    $mid = floor(($end + $start)/2); 
+    if ($arr[$mid] == $x)  
+        return $mid; 
+  
+    elseif ($arr[$mid] > $x) { 
+  
+        // call binarySearch on [start, mid - 1] 
+        return binarySearch($arr, $start, $mid - 1, $x); 
+    } 
+    else { 
+  
+        // call binarySearch on [mid + 1, end] 
+        return binarySearch($arr, $mid + 1, $end, $x); 
+    } 
+} 
+
 $s = array(-2,2,3,4,5);
-$out = binary_search_recursive($s, 0, count($s) - 1 ,4);
+$value = 5;
+$out = binary_search_recursive($s, 0, count($s) - 1 ,$value);
+//$out = binarySearch($s, 0, count($s) - 1 ,$value);
 print_r($out);
