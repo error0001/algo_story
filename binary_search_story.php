@@ -38,13 +38,21 @@ function binary_srch_basic($a,$n,$x)
 function binary_search_recursive($a, $l, $h, $x)
 {
     $low = $l;
-    $high = $h - 1;
+    $high = $h;
     $mid = 0;
     
-    if($low <= $high)
+    if ($low > $high)
+    {
+        return "Not correct";
+    }
+    else
     {
         $mid = floor(($low + $high) / 2);
-        if ($a[$mid] != $x)
+        if ($a[$mid] == $x)
+        {
+            return $mid;   
+        }
+        else
         {
             if ($a[$mid] > $x)
             {
@@ -52,14 +60,12 @@ function binary_search_recursive($a, $l, $h, $x)
             }
             else
             {
-               binary_search_recursive($a, $mid + 1, $high, $x);
+                binary_search_recursive($a, $mid + 1, $high, $x);
             }
         }
-        return $mid;
-    }   
-    return "Not found";
+    }
 }
 
 $s = array(-2,2,3,4,5);
-$out = binary_search_recursive($s, 0, count($s) ,3);
+$out = binary_search_recursive($s, 0, count($s) - 1 ,4);
 print_r($out);
