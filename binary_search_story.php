@@ -37,5 +37,5 @@ function bin_srch($a,$n,$x)
 }
 
 $s = array(1,2,3,4,5);
-$out = bin_srch($s, 5, 6);
+$out = bin_srch($s, count($s), 6);
 print_r($out);
